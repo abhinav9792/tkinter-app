@@ -113,7 +113,6 @@ class ClientRoutes:
     def sell_stock(self, **kwargs):
         id_ = kwargs['id']
         amount = kwargs['amount']
-        print(id_)
         cur = db.cursor()
         cur.execute(
             'DELETE FROM bought_stock where id=%s', (id_,)
@@ -122,10 +121,15 @@ class ClientRoutes:
             'UPDATE user SET vollet=vollet+%s where email=%s', (amount, kwargs['email'])
         )
         db.commit()
+        cur.close()
         return json.dumps({'currency': kwargs['name'], 'price': amount})
 
-
-
+    def update_cash(self, **kwargs):
+        cur = db.cursor()
+        cur.execute(
+            'UPDATE user SET vollet=vollet+%s where email=%s', (kwargs.get('amount'), kwargs['email'])
+        )
+        return json.dumps({'status': True})
 
 
 
