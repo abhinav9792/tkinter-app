@@ -2,7 +2,7 @@ import json
 import socket
 from tkinter import *
 from functools import partial
-from conn import client,SIZE,FORMAT
+from conn import client,SIZE,FORMAT, user
 # socket code
 
 
@@ -13,6 +13,8 @@ def validateLogin(username, password,cash_Entry):
 	client.send(log_j.encode('utf-8'))
 	res = client.recv(SIZE).decode(FORMAT)
 	res_js = json.loads(res)
+	user.username = res_js['username']
+	user.password = password
 	print(res_js)
 	
 

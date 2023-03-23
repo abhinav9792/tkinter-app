@@ -32,16 +32,14 @@ def handle_client(conn, addr):
     username = None
     password = None
     while connected:
-        print(auth)
         client_msg = conn.recv(SIZE).decode(FORMAT)
         route, route_name, data = parse_client_data(client_msg)
-        print(route,route_name,data)
         if route_name == 'login':
             response, auth, username, password = route(**data)
-        elif (not auth) :
+        elif (not auth) or (not username) or (not password):
             response = json.dumps({'status': 401})  # login required to continue
         else:
-            response = route(**data)
+            response = route(email=username, **data)
         print(f"[{addr}] {data}")
         msg = str(response)
         conn.send(msg.encode(FORMAT))

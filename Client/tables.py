@@ -52,10 +52,10 @@ table_data.column("Cost",anchor=CENTER,width=80)
 
 table_data.heading("#0",text="",anchor=CENTER)
 table_data.heading ("Name of the cryptocurrencies",text="Id",anchor=CENTER  )
-table_data.heading("Date of purchasing",text="Name of the cryptocurrencies",anchor=CENTER)
-table_data.heading("Buy/sell option",text="Date of purchasing",anchor=CENTER)
-table_data.heading("Quantity",text="Buy/sell option",anchor=CENTER)
-table_data.heading("Cost",text="Cos",anchor=CENTER)
+table_data.heading("Date of purchasing",text="Name",anchor=CENTER)
+table_data.heading("Buy/sell option",text="Rank",anchor=CENTER)
+table_data.heading("Quantity",text="States",anchor=CENTER)
+table_data.heading("Cost",text="States",anchor=CENTER)
 
 #insert code here
 table_data.insert(parent='',index='end',iid=0,text='',
@@ -70,7 +70,6 @@ table_data.insert(parent='',index='end',iid=4,text='',
 values=('5','Rock','24/03/23','Buy', '1700'))
 table_data.insert(parent='',index='end',iid=5,text='',
 values=('6','Gold','24/03/23','Buy', '15000'))
-
 table_data.pack()
 
 canvas.create_rectangle(0, 450, 670, 500, fill='orange')
