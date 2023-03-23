@@ -1,3 +1,4 @@
+import json
 from tkinter import *
 from tkinter import ttk
 
@@ -48,7 +49,7 @@ tree.column("# 2", anchor=CENTER)
 tree.heading("# 2", text="FName")
 tree.column("# 3", anchor=CENTER)
 tree.heading("# 3", text="LName")
-
+	
 # Insert the data in Treeview widget
 tree.insert('', 'end', text="1", values=('1', 'Joe', 'Nash'))
 tree.insert('', 'end', text="2", values=('2', 'Emily', 'Mackmohan'))
@@ -57,7 +58,12 @@ tree.insert('', 'end', text="4", values=('4', 'Percy', 'Andrews'))
 tree.insert('', 'end', text="5", values=('5', 'Stephan', 'Heyward'))
 
 tree.place(x=10,y=150)
-
+def item_selected(event):
+    for selected_item in tree.selection():
+        item = tree.item(selected_item)
+        record = item['values']
+        print(record)
+tree.bind('<<TreeviewSelect>>', item_selected)
 
 def confirm():
 	conf= Toplevel(tkWindow)
@@ -127,23 +133,32 @@ Button(tkWindow, text="Buy Stock",
 labl_01 = Label(tkWindow, text="Sell Stock ",width=20,font=("bold", 15),bg="orange")  
 labl_01.place(x=230,y=350) 
 
-tree = ttk.Treeview(tkWindow, column=("c1", "c2", "c3"), show='headings', height=5)
-tree.column("# 1", anchor=CENTER)
-tree.heading("# 1", text="ID")
-tree.column("# 2", anchor=CENTER)
-tree.heading("# 2", text="FName")
-tree.column("# 3", anchor=CENTER)
-tree.heading("# 3", text="LName")
+
+
+tree_sell = ttk.Treeview(tkWindow, column=("c1", "c2", "c3"), show='headings', height=5)
+tree_sell.column("# 1", anchor=CENTER)
+tree_sell.heading("# 1", text="ID")
+tree_sell.column("# 2", anchor=CENTER)
+tree_sell.heading("# 2", text="FName")
+tree_sell.column("# 3", anchor=CENTER)
+tree_sell.heading("# 3", text="LName")
 
 # Insert the data in Treeview widget
-tree.insert('', 'end', text="1", values=('1', 'Joe', 'Nash'))
-tree.insert('', 'end', text="2", values=('2', 'Emily', 'Mackmohan'))
-tree.insert('', 'end', text="3", values=('3', 'Estilla', 'Roffe'))
-tree.insert('', 'end', text="4", values=('4', 'Percy', 'Andrews'))
-tree.insert('', 'end', text="5", values=('5', 'Stephan', 'Heyward'))
+tree_sell.insert('', 'end', text="1", values=('1', 'Joe', 'Nash'))
+tree_sell.insert('', 'end', text="2", values=('2', 'Emily', 'Mackmohan'))
+tree_sell.insert('', 'end', text="3", values=('3', 'Estilla', 'Roffe'))
+tree_sell.insert('', 'end', text="4", values=('4', 'Percy', 'Andrews'))
+tree_sell.insert('', 'end', text="5", values=('5', 'Stephan', 'Heyward'))
 
-tree.place(x=10,y=400)
-
+tree_sell.place(x=10,y=400)
+def item_selected(event):
+    for selected_item in tree_sell.selection():
+        item = tree_sell.item(selected_item)
+        print("--->>>",item)
+        record = item['values']
+        json.dumps(record)
+        print(record)
+tree_sell.bind('<<TreeviewSelect>>', item_selected)
 
 def confirm2():
 	conf= Toplevel(tkWindow)

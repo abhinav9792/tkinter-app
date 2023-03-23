@@ -1,10 +1,18 @@
+import json
+import socket
 from tkinter import *
 from functools import partial
 
+# socket code
+client = socket.socket()
+print("created connection")
+
+
 def validateLogin(username, password,cash_Entry):
-	print("username entered :", username.get())
-	print("password entered :", password.get())
-	print("total cash is:",cash_Entry.get())
+	log = {"username":username.get(),"password":password.get(),"cash":cash_Entry.get()}
+	log_j = json.dumps(log)
+	print(log_j)
+
 	return
 
 #window
