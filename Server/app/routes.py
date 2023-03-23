@@ -113,10 +113,10 @@ class ClientRoutes:
     def sell_stock(self, **kwargs):
         id_ = kwargs['id']
         amount = kwargs['amount']
-
+        print(id_)
         cur = db.cursor()
         cur.execute(
-            'DELETE bought_stock where id=%s', (id_)
+            'DELETE FROM bought_stock where id=%s', (id_,)
         )
         cur.execute(
             'UPDATE user SET vollet=vollet+%s where email=%s', (amount, kwargs['email'])

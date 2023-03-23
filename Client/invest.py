@@ -235,7 +235,7 @@ def confirm2():
     d = {
         'id': record[0], 'amount': res_js[record[1]], 'name': record[1]
     }
-    client.send(json.dumps({'route': 'confirm_buy', 'data': d}).encode(FORMAT))
+    client.send(json.dumps({'route': 'sell_stock', 'data': d}).encode(FORMAT))
     res = client.recv(SIZE).decode(FORMAT)
     res_json = json.loads(res)
 
