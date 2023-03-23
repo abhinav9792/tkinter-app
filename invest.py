@@ -2,6 +2,14 @@ import json
 from tkinter import *
 from tkinter import ttk
 
+
+
+# data_resp = {"route":"stock_price","data":{}}
+
+# client.send(json.dumps(data_resp).encode(FORMAT))
+# res = client.recv(SIZE).decode(FORMAT)
+# res_js = json.loads(res)
+# print(res_js)
 # Create an instance of tkinter frame
 tkWindow = Tk()
 
@@ -62,7 +70,7 @@ def item_selected(event):
     for selected_item in tree.selection():
         item = tree.item(selected_item)
         record = item['values']
-        print(record)
+        print(record[2])
 tree.bind('<<TreeviewSelect>>', item_selected)
 
 def confirm():

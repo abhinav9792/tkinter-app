@@ -18,7 +18,7 @@ def parse_client_data(json_string):
     client_data = json.loads(json_string)
     route_name = client_data.get('route')
     if route_name:
-        route = client_routes.__getattribute__("login")
+        route = client_routes.__getattribute__(route_name)
     else:
         route = None
     data = client_data.get("data", {})
@@ -32,12 +32,13 @@ def handle_client(conn, addr):
     username = None
     password = None
     while connected:
+        print(auth)
         client_msg = conn.recv(SIZE).decode(FORMAT)
         route, route_name, data = parse_client_data(client_msg)
-        print(route_name)
+        print(route,route_name,data)
         if route_name == 'login':
             response, auth, username, password = route(**data)
-        elif (not auth) or (not username) or (not password):
+        elif (not auth) :
             response = json.dumps({'status': 401})  # login required to continue
         else:
             response = route(**data)

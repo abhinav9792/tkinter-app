@@ -52,24 +52,24 @@ table_data.column("Cost",anchor=CENTER,width=80)
 
 table_data.heading("#0",text="",anchor=CENTER)
 table_data.heading ("Name of the cryptocurrencies",text="Id",anchor=CENTER  )
-table_data.heading("Date of purchasing",text="Name",anchor=CENTER)
-table_data.heading("Buy/sell option",text="Rank",anchor=CENTER)
-table_data.heading("Quantity",text="States",anchor=CENTER)
-table_data.heading("Cost",text="States",anchor=CENTER)
+table_data.heading("Date of purchasing",text="Name of the cryptocurrencies",anchor=CENTER)
+table_data.heading("Buy/sell option",text="Date of purchasing",anchor=CENTER)
+table_data.heading("Quantity",text="Buy/sell option",anchor=CENTER)
+table_data.heading("Cost",text="Cos",anchor=CENTER)
 
 #insert code here
 table_data.insert(parent='',index='end',iid=0,text='',
-values=('1','Ninja','101','Oklahoma', 'Moore'))
+values=( '1','Ethyrem','23/03/23','Buy', '1500'))
 table_data.insert(parent='',index='end',iid=1,text='',
-values=('2','Ranger','102','Wisconsin', 'Green Bay'))
+values=('2','Bitcoin','23/03/23','Sell', '120'))
 table_data.insert(parent='',index='end',iid=2,text='',
-values=('3','Deamon','103', 'California', 'Placentia'))
+values=('3','Dogecoin','23/03/23', 'Buy', '1234'))
 table_data.insert(parent='',index='end',iid=3,text='',
-values=('4','Dragon','104','New York' , 'White Plains'))
+values=('4','Ethyrem','24/03/23','Sell', '1800'))
 table_data.insert(parent='',index='end',iid=4,text='',
-values=('5','CrissCross','105','California', 'San Diego'))
+values=('5','Rock','24/03/23','Buy', '1700'))
 table_data.insert(parent='',index='end',iid=5,text='',
-values=('6','ZaqueriBlack','106','Wisconsin' , 'TONY'))
+values=('6','Gold','24/03/23','Buy', '15000'))
 
 table_data.pack()
 
